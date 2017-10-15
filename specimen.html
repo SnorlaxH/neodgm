@@ -51,7 +51,7 @@ window.onload = (_e) => {
     let charFrom = parseInt(table.getAttribute('data-from'));
     let charTo = parseInt(table.getAttribute('data-to'));
     let cells = new Array(charTo - charFrom + 1);
-    let rows = new Array(Math.ceil(cells.length / 32));
+    let rows = new Array(Math.ceil(cells.length / 16));
     for (let i = 0; i < cells.length; i++) {
       cells[i] = document.createElement('td');
       cells[i].textContent = String.fromCharCode(charFrom + i);
@@ -59,8 +59,8 @@ window.onload = (_e) => {
     }
     for (let i = 0; i < rows.length; i++) {
       rows[i] = document.createElement('tr');
-      for (let j = 0; j < 32; j++) {
-        rows[i].appendChild(cells[i * 32 + j] || document.createElement('td'));
+      for (let j = 0; j < 16; j++) {
+        rows[i].appendChild(cells[i * 16 + j] || document.createElement('td'));
       }
       table.appendChild(rows[i]);
     }
@@ -124,8 +124,6 @@ window.onload = (_e) => {
       </li>
       <li>
         <p>합자 처리 (Ligation)</p>
-        <p>현재 합자는 구현되어 있지 않습니다. 아래 목록은 구현 예정인
-        합자들의 목록입니다.</p>
         <p>웹 브라우저에서 "font-feature-settings" CSS 속성을 지원하지 않으면
         이하의 내용이 제대로 표시되지 않을 수 있습니다.</p>
         <ul>
